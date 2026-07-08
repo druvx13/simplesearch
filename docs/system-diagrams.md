@@ -263,9 +263,6 @@ erDiagram
     }
 
     sites ||--|| sites_fts : "indexed by FTS triggers"
-    sites ||--o{ crawl_log : "crawled events"
-    query_log }o--|| sites : "searches across"
-    dictionary }o--|| sites : "derived tokens"
 ```
 
 ## 7) Activity Diagram — User Search Flow
