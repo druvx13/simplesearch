@@ -1,0 +1,72 @@
+# SimpleSearch - Apache Rewrite Rules
+# Redirect all requests to public/index.php (front controller)
+
+RewriteEngine On
+
+# ── Serve static assets from public/ directory ──
+# When browser requests /assets/..., serve from /public/assets/...
+RewriteCond %{REQUEST_URI} ^/assets/(.*)$
+RewriteCond %{DOCUMENT_ROOT}/public/assets/%1 -f
+RewriteRule ^assets/(.*)$ public/assets/$1 [L]
+
+# ── Serve other existing files from public/ directly ──
+RewriteCond %{REQUEST_URI} ^/public/(.*)$
+RewriteCond %{DOCUMENT_ROOT}/public/%1 -f
+RewriteRule ^public/(.*)$ public/$1 [L]
+
+# ── Block direct access to internal directories ──
+RewriteRule ^src/ - [F,L]
+RewriteRule ^config/ - [F,L]
+RewriteRule ^templates/ - [F,L]
+RewriteRule ^data/ - [F,L]
+
+# ── Route everything else through the front controller ──
+# Skip if the request is for an existing file in public/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/index.php [QSA,L]
+
+# Set default index
+DirectoryIndex public/index.php index.php
+
+# ── Correct MIME types ──
+<IfModule mod_mime.c>
+    AddType text/css .css
+    AddType application/javascript .js
+    AddType image/png .png
+    AddType image/jpeg .jpg
+    AddType image/gif .gif
+    AddType image/svg+xml .svg
+    AddType image/x-icon .ico
+    AddType font/woff2 .woff2
+    AddType font/woff .woff
+    AddType font/ttf .ttf
+    AddType font/otf .otf
+</IfModule>
+
+# ── Security headers ──
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# ── PHP settings ──
+<IfModule mod_php.c>
+    php_flag display_errors off
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+</IfModule>
+
+# ── Cache static assets ──
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType font/woff2 "access plus 1 month"
+    ExpiresByType font/woff "access plus 1 month"
+    ExpiresByType font/ttf "access plus 1 month"
+</IfModule>

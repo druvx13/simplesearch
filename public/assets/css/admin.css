@@ -1,0 +1,240 @@
+/* ================= ADMIN-ONLY STYLES ================= */
+/* Shared component styles (card, btn, form-group, table, etc.) are in app.css */
+
+/* Admin Navigation Tabs */
+.admin-nav {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    padding: 8px;
+    background: var(--bg);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.admin-nav a {
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    color: var(--text);
+    transition: var(--transition);
+    white-space: nowrap;
+    font-weight: 500;
+    /* Touch-friendly on mobile */
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-nav a:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.admin-nav a.active {
+    background: var(--primary);
+    color: white;
+}
+
+/* Form row (two columns) */
+.form-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+/* Form checkbox */
+.form-check {
+    display: flex;
+    align-items: center;
+}
+
+.form-check label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.form-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+/* Status badges */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.status-success {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.status-warning {
+    background: #fff3cd;
+    color: #856404;
+}
+
+/* Header announcement bar */
+.header-announcement {
+    background: var(--primary-light);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+/* Custom page content (public) */
+.custom-page {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.custom-page-content {
+    line-height: 1.8;
+    color: var(--text);
+}
+
+.custom-page-content h2,
+.custom-page-content h3,
+.custom-page-content h4 {
+    margin-top: 24px;
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+.custom-page-content h2 { font-size: 1.4rem; }
+.custom-page-content h3 { font-size: 1.2rem; }
+.custom-page-content h4 { font-size: 1.05rem; }
+
+.custom-page-content p {
+    margin-bottom: 16px;
+}
+
+.custom-page-content ul,
+.custom-page-content ol {
+    margin-bottom: 16px;
+    padding-left: 24px;
+}
+
+.custom-page-content li {
+    margin-bottom: 6px;
+}
+
+.custom-page-content a {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.custom-page-content blockquote {
+    border-left: 4px solid var(--primary);
+    padding: 12px 16px;
+    margin: 16px 0;
+    background: var(--bg-alt);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.custom-page-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+}
+
+.custom-page-content th,
+.custom-page-content td {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    text-align: left;
+}
+
+.custom-page-content th {
+    background: var(--bg-alt);
+    font-weight: 600;
+}
+
+.custom-page-content pre {
+    background: var(--bg-alt);
+    padding: 16px;
+    border-radius: var(--radius);
+    overflow-x: auto;
+    margin: 16px 0;
+    font-size: 0.9rem;
+}
+
+.custom-page-content code {
+    background: var(--bg-alt);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* ================= ADMIN RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .admin-nav {
+        gap: 2px;
+        padding: 6px;
+    }
+
+    .admin-nav a {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+        min-height: 36px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-nav {
+        gap: 2px;
+        padding: 4px;
+    }
+
+    .admin-nav a {
+        flex: 1 1 auto;
+        text-align: center;
+        padding: 6px 8px;
+        font-size: 0.8rem;
+        min-height: 36px;
+    }
+
+    .custom-page-content {
+        font-size: 0.95rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .admin-nav, .header-announcement { display: none !important; }
+}
