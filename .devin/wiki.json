@@ -1,0 +1,260 @@
+{
+  "repo_notes": [
+    {
+      "content": ""
+    }
+  ],
+  "pages": [
+    {
+      "title": "SimpleSearch Overview",
+      "purpose": "High-level introduction to SimpleSearch: what it is, its architecture, key subsystems, and how the pieces fit together. Links to child pages for deeper coverage.",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Getting Started & Deployment",
+      "purpose": "How to install, configure, and deploy SimpleSearch: PHP requirements, Composer setup, Apache/htaccess configuration, directory structure, and first-run initialization.",
+      "parent": "SimpleSearch Overview",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Configuration Reference",
+      "purpose": "Detailed reference for all configuration files: app.php (crawl limits, pagination, dictionary), database.php (SQLite path resolution), and security.php (admin credentials, CSRF token length).",
+      "parent": "SimpleSearch Overview",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Core Architecture",
+      "purpose": "Overview of the layered MVC-style architecture: how the front controller bootstraps the application, wires dependencies, and dispatches requests. Links to child pages covering each layer.",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Front Controller & Request Routing",
+      "purpose": "How public/index.php bootstraps all dependencies (session, database, repositories, services, controllers), and how the action-based switch-case routing dispatches requests to controller methods. Covers the Router and Route classes.",
+      "parent": "Core Architecture",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Controllers",
+      "purpose": "Detailed coverage of the three controllers: PublicController (search, suggestions, open index, custom pages), AdminController (dashboard, site CRUD, crawl operations, menu/page/settings management), and AuthController (login/logout).",
+      "parent": "Core Architecture",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Template Engine & Views",
+      "purpose": "How TemplateEngine renders PHP templates using output buffering, injects global data (menu items, site settings, asset base URL), and wraps content in the main layout. Covers the layout partials (header, footer, main) and all public/admin view templates.",
+      "parent": "Core Architecture",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Search Engine",
+      "purpose": "Overview of the search pipeline from query input to result display, including FTS5 indexing, LIKE fallback, and 'Did You Mean?' suggestions. Links to child pages for each subsystem.",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Search Service & FTS5 Query Pipeline",
+      "purpose": "How SearchService.php processes a query: logging it, building an FTS5 query string with prefix matching, falling back to LIKE search, paginating results, and generating 'Did You Mean?' corrections via Levenshtein distance against the dictionary.",
+      "parent": "Search Engine",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Dictionary & Suggestion Engine",
+      "purpose": "How the dictionary table is populated from crawled text (DictionaryRepository.updateFromText), word-length filtering, and how DictionaryService and SearchService use Levenshtein distance to power 'Did You Mean?' corrections and autocomplete suggestions.",
+      "parent": "Search Engine",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Web Crawler",
+      "purpose": "Overview of the crawling subsystem: how URLs are fetched, parsed, and indexed. Links to child pages for single-URL crawling, bulk/sitemap crawling, and import/export.",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "CrawlerService: Fetching & Parsing",
+      "purpose": "How CrawlerService.crawlUrl() fetches pages via cURL (with file_get_contents fallback), extracts title, meta description, and body text, enforces max_content_length, and strips scripts/styles/nav/footer. Covers crawlAndSave, recrawl, and crawl logging.",
+      "parent": "Web Crawler",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Bulk Crawl, Sitemap Crawl & Import/Export",
+      "purpose": "How bulk URL crawling works (list of URLs), sitemap.xml parsing (including sitemapindex and gzip support), and the ImportExportService for CSV import/export and SQLite database backup.",
+      "parent": "Web Crawler",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Database Layer",
+      "purpose": "Overview of the SQLite persistence layer: connection management, schema initialization, and the repository pattern. Links to child pages for schema details and each repository.",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Database Connection & Schema Initialization",
+      "purpose": "How Connection.php resolves the SQLite file path (primary vs. fallback), creates the PDO instance with WAL journal mode and foreign keys enabled. How SchemaManager.initialize() creates all tables (sites, sites_fts, dictionary, query_log, crawl_log, menu_items, custom_pages, site_settings), FTS5 triggers, and seeds default data.",
+      "parent": "Database Layer",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Repositories",
+      "purpose": "Detailed coverage of all seven repository classes: SiteRepository (CRUD + FTS5/LIKE search), QueryLogRepository (logging + suggest), CrawlLogRepository (crawl audit trail), DictionaryRepository (word indexing), MenuRepository (navigation items), PageRepository (custom pages with slug lookup), and SettingsRepository (key-value site settings).",
+      "parent": "Database Layer",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Security",
+      "purpose": "Overview of the security subsystem: authentication, session management, CSRF protection, and middleware. Links to child pages for each component.",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Authentication & Session Management",
+      "purpose": "How admin authentication works: PasswordHasher verifies bcrypt hashes (with plaintext fallback during transition), SessionManager tracks the admin session flag, AuthMiddleware enforces login on protected routes, and AuthController handles the login/logout flow.",
+      "parent": "Security",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "CSRF Protection",
+      "purpose": "How CSRF tokens are generated (random_bytes + bin2hex), stored in session, validated on POST forms (CsrfMiddleware.handle) and GET destructive actions (validateGetToken), and how the token length is configured in security.php.",
+      "parent": "Security",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Admin Panel",
+      "purpose": "Overview of the administrative interface: dashboard statistics, site management, crawl operations, menu management, custom pages CMS, and site settings. Links to child pages for each functional area.",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Dashboard & Site Index Management",
+      "purpose": "The admin dashboard: statistics (total sites, queries, crawls, last crawl date), the indexed sites table, add/edit/delete/recrawl actions, and the crawl log viewer. Covers AdminController methods: dashboard, add, edit, update, delete, recrawl, clearLog.",
+      "parent": "Admin Panel",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Menu, Custom Pages & Site Settings",
+      "purpose": "Admin management of navigation menu items (CRUD with icon, sort order, open-in-new-tab), custom CMS pages (slug auto-generation, publish/unpublish, HTML content), and site-wide settings (header text, footer text, home tagline).",
+      "parent": "Admin Panel",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Frontend Assets",
+      "purpose": "Overview of the frontend layer: CSS design system, JavaScript interactions, and web font assets. Links to child pages for CSS and JavaScript details.",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "CSS Design System",
+      "purpose": "The CSS architecture: design tokens (CSS variables for colors, typography, spacing), page-state-driven layout (body.page-home vs body.page-results), home hero, results header, suggestions dropdown, pagination, stats grid, status badges, and responsive breakpoints (768px, 480px). Also covers admin.css extensions for admin nav tabs, form rows, status badges, and custom page content rendering.",
+      "parent": "Frontend Assets",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "JavaScript: Search Autocomplete & Admin Interactions",
+      "purpose": "How search.js implements debounced autocomplete (fetch to ?action=suggest, 200ms debounce), keyboard navigation (ArrowUp/Down/Enter/Escape), touch support, and prefix highlighting. How admin.js auto-hides flash messages after 8 seconds.",
+      "parent": "Frontend Assets",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Glossary",
+      "purpose": "Definitions of codebase-specific terms, abbreviations, and domain concepts for onboarding engineers. Includes code pointers to relevant files and classes.",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    }
+  ]
+}
