@@ -1,16 +1,19 @@
 {
   "repo_notes": [
     {
-      "content": ""
+      "content": "",
+      "author": null
     }
   ],
   "pages": [
     {
       "title": "SimpleSearch Overview",
       "purpose": "High-level introduction to SimpleSearch: what it is, its architecture, key subsystems, and how the pieces fit together. Links to child pages for deeper coverage.",
+      "parent": null,
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
@@ -20,7 +23,8 @@
       "parent": "SimpleSearch Overview",
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
@@ -30,16 +34,19 @@
       "parent": "SimpleSearch Overview",
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
     {
       "title": "Core Architecture",
       "purpose": "Overview of the layered MVC-style architecture: how the front controller bootstraps the application, wires dependencies, and dispatches requests. Links to child pages covering each layer.",
+      "parent": null,
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
@@ -49,7 +56,8 @@
       "parent": "Core Architecture",
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
@@ -59,7 +67,8 @@
       "parent": "Core Architecture",
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
@@ -69,16 +78,19 @@
       "parent": "Core Architecture",
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
     {
       "title": "Search Engine",
       "purpose": "Overview of the search pipeline from query input to result display, including FTS5 indexing, LIKE fallback, and 'Did You Mean?' suggestions. Links to child pages for each subsystem.",
+      "parent": null,
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
@@ -88,7 +100,8 @@
       "parent": "Search Engine",
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
@@ -98,26 +111,30 @@
       "parent": "Search Engine",
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
     {
       "title": "Web Crawler",
       "purpose": "Overview of the crawling subsystem: how URLs are fetched, parsed, and indexed. Links to child pages for single-URL crawling, bulk/sitemap crawling, and import/export.",
+      "parent": null,
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
     {
-      "title": "CrawlerService: Fetching & Parsing",
+      "title": "CrawlerService Fetching & Parsing",
       "purpose": "How CrawlerService.crawlUrl() fetches pages via cURL (with file_get_contents fallback), extracts title, meta description, and body text, enforces max_content_length, and strips scripts/styles/nav/footer. Covers crawlAndSave, recrawl, and crawl logging.",
       "parent": "Web Crawler",
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
@@ -127,16 +144,19 @@
       "parent": "Web Crawler",
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
     {
       "title": "Database Layer",
       "purpose": "Overview of the SQLite persistence layer: connection management, schema initialization, and the repository pattern. Links to child pages for schema details and each repository.",
+      "parent": null,
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
@@ -146,7 +166,8 @@
       "parent": "Database Layer",
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
@@ -156,16 +177,19 @@
       "parent": "Database Layer",
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
     {
       "title": "Security",
       "purpose": "Overview of the security subsystem: authentication, session management, CSRF protection, and middleware. Links to child pages for each component.",
+      "parent": null,
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
@@ -175,7 +199,8 @@
       "parent": "Security",
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
@@ -185,16 +210,19 @@
       "parent": "Security",
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
     {
       "title": "Admin Panel",
       "purpose": "Overview of the administrative interface: dashboard statistics, site management, crawl operations, menu management, custom pages CMS, and site settings. Links to child pages for each functional area.",
+      "parent": null,
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
@@ -204,7 +232,8 @@
       "parent": "Admin Panel",
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
@@ -214,16 +243,19 @@
       "parent": "Admin Panel",
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
     {
       "title": "Frontend Assets",
       "purpose": "Overview of the frontend layer: CSS design system, JavaScript interactions, and web font assets. Links to child pages for CSS and JavaScript details.",
+      "parent": null,
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
@@ -233,7 +265,8 @@
       "parent": "Frontend Assets",
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
@@ -243,18 +276,22 @@
       "parent": "Frontend Assets",
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     },
     {
       "title": "Glossary",
       "purpose": "Definitions of codebase-specific terms, abbreviations, and domain concepts for onboarding engineers. Includes code pointers to relevant files and classes.",
+      "parent": null,
       "page_notes": [
         {
-          "content": ""
+          "content": "",
+          "author": null
         }
       ]
     }
-  ]
+  ],
+  "include_patterns": []
 }
